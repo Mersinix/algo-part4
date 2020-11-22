@@ -1,0 +1,63 @@
+
+PROCEDURE swap(VAR xp, VAR yp : INTEGER)
+
+VAR
+   tmp : INTEGER;
+BEGIN
+  tmp := xp;
+  xp  := yp;
+  yp  := tmp;
+END
+
+
+ALGORITHM Simple-Insertion-sorting
+
+VAR
+    Cards : ARRAY_OF INTEGER[i];
+BEGIN
+    
+    read("random card from the array and putted index of 0");
+
+    FUNCTION insertion-sort (int[], Cards)
+    
+    BEGIN
+
+        FOR i FROM 1 TO Cards.length  DO // inctremntal loop
+            
+            FOR j = i , j > 0 , j decrement  DO // decremental loop
+               
+                IF ( Cards[j - 1] > Cards[j] ) THEN
+                    swap(j - 1 , j)
+                ELSE
+                    break
+                END_IF
+
+            END_FOR
+
+        END_FOR
+
+        RETURN Cards ;
+
+    END
+
+END
+___________________________________
+//second solution with while loop 
+ 
+ Insertion_sort(A,n)
+ {
+     FOR i FROM 1 TO n-1  DO
+        {
+         value:= A[i];
+         hole:=i;
+       
+         WHILE (hole>0 && A[hole-1]>value)
+         A[hole]:=A[hole-1];
+         hole:=hole-1;
+         END WHILE
+          } 
+         A[hole]:=value;
+         
+     END_FOR
+ }
+ }
